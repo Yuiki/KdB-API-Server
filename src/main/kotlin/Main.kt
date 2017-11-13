@@ -2,13 +2,19 @@ import org.supercsv.cellprocessor.ift.CellProcessor
 import org.supercsv.io.CsvBeanReader
 import org.supercsv.prefs.CsvPreference
 import java.io.File
+import java.sql.DriverManager
 
 fun main(args: Array<String>) {
     val header = arrayOf("number", "name", "classMethod", "credits", "year",
             "term", "weekdayAndPeriod", "classRoom", "instructor", "overview",
             "remarks", null, null, null, null, null, null, null, null)
-    val courses = readCsv("./src/main/kotlin/kdb.csv", Course::class.java, header)
-    println(courses[0].name)
+    val courses = readCsv("./src/main/resources/kdb.csv", Course::class.java, header)
+
+    Class.forName("org.sqlite.JDBC")
+    DriverManager.getConnection("jdbc:sqlite:./src/main/resources/kdb.db").use {
+        Course.createTableIfNotExists(it)
+        Course.insert(courses, it)
+    }
 }
 
 fun <T> readCsv(fileName: String, clazz: Class<T>, header: Array<String?>): List<T> {
