@@ -1,3 +1,5 @@
+package db
+
 import org.supercsv.cellprocessor.ift.CellProcessor
 import org.supercsv.io.CsvBeanReader
 import org.supercsv.prefs.CsvPreference
@@ -8,10 +10,10 @@ fun main(args: Array<String>) {
     val header = arrayOf("number", "name", "classMethod", "credits", "year",
             "term", "weekdayAndPeriod", "classRoom", "instructor", "overview",
             "remarks", null, null, null, null, null, null, null, null)
-    val courses = readCsv("./src/main/resources/kdb.csv", Course::class.java, header)
+    val courses = readCsv("./src/db.main/resources/kdb.csv", Course::class.java, header)
 
     Class.forName("org.sqlite.JDBC")
-    DriverManager.getConnection("jdbc:sqlite:./src/main/resources/kdb.db").use {
+    DriverManager.getConnection("jdbc:sqlite:./src/db.main/resources/kdb.db").use {
         Course.createTableIfNotExists(it)
         Course.insert(courses, it)
     }

@@ -1,3 +1,5 @@
+package db
+
 import java.sql.Connection
 
 data class Course @JvmOverloads constructor(
