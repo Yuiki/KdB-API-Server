@@ -32,16 +32,11 @@
       <sourceFolder url="file://$MODULE_DIR$/../../src/test/kotlin" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/../../src/test/resources" type="java-test-resource" />
     </content>
-    <content url="file://$MODULE_DIR$/../../test">
-      <sourceFolder url="file://$MODULE_DIR$/../../test" isTestSource="true" />
-    </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="KdB-API-Server_main" />
     <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jre8:1.1.51" level="project" />
     <orderEntry type="library" name="Gradle: net.sf.supercsv:super-csv-java8:2.4.0" level="project" />
-    <orderEntry type="library" name="Gradle: io.requery:requery:1.4.0" level="project" />
-    <orderEntry type="library" name="Gradle: io.requery:requery-kotlin:1.4.0" level="project" />
     <orderEntry type="library" name="Gradle: org.xerial:sqlite-jdbc:3.7.2" level="project" />
     <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib:1.1.51" level="project" />
     <orderEntry type="library" name="Gradle: org.jetbrains.kotlin:kotlin-stdlib-jre7:1.1.51" level="project" />

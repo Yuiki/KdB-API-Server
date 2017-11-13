@@ -15,7 +15,6 @@ buildscript {
 
 apply plugin: 'application'
 apply plugin: 'kotlin'
-apply plugin: 'kotlin-kapt'
 
 mainClassName = 'MainKt'
 
@@ -26,9 +25,6 @@ repositories {
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
     compile 'net.sf.supercsv:super-csv-java8:2.4.0'
-    compile 'io.requery:requery:1.4.0'
-    compile 'io.requery:requery-kotlin:1.4.0'
-    kapt 'io.requery:requery-processor:1.4.0'
     compile 'org.xerial:sqlite-jdbc:3.7.2'
 }
 
@@ -37,11 +33,4 @@ compileKotlin {
 }
 compileTestKotlin {
     kotlinOptions.jvmTarget = "1.8"
-}
-
-sourceSets {
-    main.kotlin.srcDirs += "src/main/kotlin"
-    test.kotlin.srcDirs += "test"
-    main.java.srcDirs += "src/main/java"
-    main.java.srcDirs += "build/generated/source/kapt/main"
 }
