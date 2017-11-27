@@ -16,9 +16,10 @@ data class Course @JvmOverloads constructor(
         var remarks: String? = null) {
 
     companion object {
-        fun createTableIfNotExists(conn: Connection) =
+        fun initializeTable(conn: Connection) =
                 conn.createStatement().use {
-                    it.execute("CREATE TABLE IF NOT EXISTS Courses(number TEXT, name TEXT, classMethod TEXT, credits TEXT, year TEXT, term TEXT, weekdayAndPeriod TEXT, classRoom TEXT, instructor TEXT, overview TEXT, remarks TEXT)")
+                    it.execute("DROP TABLE IF EXISTS Courses")
+                    it.execute("CREATE TABLE Courses(number TEXT, name TEXT, classMethod TEXT, credits TEXT, year TEXT, term TEXT, weekdayAndPeriod TEXT, classRoom TEXT, instructor TEXT, overview TEXT, remarks TEXT)")
                 }
 
         fun insert(courses: List<Course>, conn: Connection): Unit =
