@@ -26,6 +26,7 @@ dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
     compile 'net.sf.supercsv:super-csv-java8:2.4.0'
     compile 'org.xerial:sqlite-jdbc:3.7.2'
+    compile "com.amazonaws:aws-lambda-java-core:1.1.0"
 }
 
 compileKotlin {
