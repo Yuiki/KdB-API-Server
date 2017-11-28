@@ -13,10 +13,8 @@ fun main(args: Array<String>) {
             "remarks", null, null, null, null, null, null, null, null)
     val courses = readCsv("kdb.csv", Course::class.java, header)
 
-    Course.getConnection().use {
-        Course.initializeTable(it)
-        Course.insert(courses, it)
-    }
+    val repo = CourseRepository()
+    repo.initialize(courses)
 }
 
 fun <T> readCsv(fileName: String, clazz: Class<T>, header: Array<String?>): List<T> {
